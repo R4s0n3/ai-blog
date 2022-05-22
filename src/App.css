@@ -1,0 +1,109 @@
+.App {
+  color: #fffff0;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+main{
+  padding:1rem;
+}
+
+hr{
+  width:5rem;
+  height:3px;
+  border:0;
+  margin-left:0;
+  background-color: #FF2E4C;
+}
+
+.posts-wrapper{
+  width: 90%;
+  max-width: 900px;
+  padding:1rem;
+  margin:1rem auto;
+  background-color: #000000;
+    color: #fff;
+    border:3px solid;
+    border-image: 
+    linear-gradient( 
+        to top right, 
+      #1E2A78, 
+      #FF2E4C
+    ) 1 1;
+}
+.App-header {
+  text-align: center;
+   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  margin:10rem 0 0;
+  font-size: calc(10px + 2vmin);
+}
+
+
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: 
+  #FF2E4C;
+  border-radius: 3px;
+}
+
+.slide-enter {
+  opacity:0;
+  transition: 1.2s ease-in;
+}
+.slide-enter-active {
+  opacity:1;
+}
+.slide-exit {
+  opacity:1;
+  transition: 1.2s ease-in;
+}
+.slide-exit-active {
+  opacity:0;
+}
+
+.fade-enter {
+  opacity:0;
+  transition: 1.2s ease-in;
+}
+.fade-enter-active {
+  opacity:1;
+}
+.fade-exit {
+  opacity:1;
+  transition: 1.2s ease-in;
+}
+.fade-exit-active {
+  opacity:0;
+}
+.info-container{
+  display: flex;
+}
+.info-container div{
+  flex:2;
+  padding:0 0.5rem;
+}
+.info-container div:first-child{
+  flex:1;
+}
+
+@media (max-width: 420px){
+  .info-container{
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,12 @@
+.checked-text{
+    color:#006400;
+    font-size: 0.8rem;
+}
+.checkbox-container{
+    display:flex;
+    align-items: center;
+
+}
+.checkbox-container p{
+    margin-left: 0.5rem;
+}
