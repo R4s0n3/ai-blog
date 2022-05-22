@@ -1,0 +1,65 @@
+.modal {
+  z-index: 100;
+  position: fixed;
+  top: 22vh;
+  left: 2.5%;
+  width: 95%;
+  background: #000;
+  border:3px solid;
+    border-image: 
+    linear-gradient( 
+        to top right, 
+      #1E2A78, 
+      #FF2E4C
+    ) 1 1;
+}
+
+.modal__header {
+  width: 100%;
+  padding: 1rem 0;
+  background: #1E2A78;
+}
+
+.modal__header h2 {
+  margin: 1rem;
+  color: white;
+
+}
+
+.modal__content {
+  padding: 1rem;
+
+}
+
+.modal__footer {
+  padding: 1rem
+}
+
+@media (min-width: 768px) {
+  .modal {
+    left: calc(50% - 20rem);
+    width: 40rem;
+  }
+}
+
+.modal-enter {
+  transform: translateY(-10rem);
+  opacity: 0;
+}
+
+.modal-enter-active {
+  transform: translateY(0);
+  opacity: 1;
+  transition: all 200ms;
+}
+
+.modal-exit {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.modal-exit-active {
+  transform: translateY(-10rem);
+  opacity: 0;
+  transition: all 200ms;
+}
