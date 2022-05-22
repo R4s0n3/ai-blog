@@ -15,6 +15,7 @@ import Button from './shared/components/FormElements/Button';
 import Footer from './shared/components/UIElements/Footer';
 
 import { CSSTransition } from 'react-transition-group';
+import AdBanner from './shared/components/UIElements/AdBanner';
 const scrollToRef = (ref) => window.scrollTo({
   left:0,
   top:ref.current.offsetTop - 50,
@@ -25,6 +26,8 @@ function App() {
   const {isLoading, clearError, error, sendRequest} = useHttpClient();
   const [featuredPost, setFeaturedPost] = React.useState();
   const [isCookies, setIsCookies] = React.useState();
+  const [isMobAds, setMobileAds] = React.useState();
+  const [isDeskAds, setDesktopAds] = React.useState();
 
  
 const acceptCookies = () => {
@@ -75,8 +78,12 @@ React.useEffect(()=>{
         try{
             const responsePosts = await sendRequest('https://ai-blog-api.herokuapp.com/api/posts');
             const filteredPosts = responsePosts.posts.filter(p => p.category.title === "Published").reverse();
-            setLoadedPosts(filteredPosts);
+            const mobileAds = responsePosts.posts.filter(p => p.category.title === "Ad | Mobile");
+            const desktopAds = responsePosts.posts.filter(p => p.category.title === "Ad | Desktop");
             setFeaturedPost(filteredPosts[0]);
+            setLoadedPosts(filteredPosts);
+            setMobileAds(mobileAds);
+            setDesktopAds(desktopAds);
         }catch(err){
                 console.log(err)
         }
@@ -116,7 +123,7 @@ const executeScroll = () => {
         <a href="https://www.miomideal.com/datenschutz" target="_blank" rel="noreferrer" >Cookies policy</a>
         </p>
         </Modal>
-    <div className="App">
+   {isCookies && <div className="App">
       <header id="HEAD" className="App-header" onClick={executeScroll}>
       <CSSTransition
                     in={!isLoading}
@@ -171,8 +178,8 @@ const executeScroll = () => {
         </div>
       </main>
      <Footer />
-    </div>
-
+    </div>}
+    {isCookies && loadedPosts && <AdBanner mobileAds={isMobAds} desktopAds={isDeskAds} />}
     </React.Fragment>
   );
 }
